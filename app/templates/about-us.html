@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrediLnc - Home</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            /* Ensures padding and borders are included in width */
+        }
+
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+            /* Prevents horizontal scrolling */
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+
+        .divider {
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 50px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .section-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            width: 20%;
+            margin: 0 auto;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .feature-img {
+            width: 11%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 2px solid #696161;
+        }
+
+        .feature-text {
+            flex: 1;
+            text-align: justify;
+            color: #666666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 70%;
+            }
+
+            .section-heading {
+                font-size: 1.5em;
+            }
+
+            .section-box {
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+    </nav>
+
+        <div class="main-content" style="display: flex; flex-direction: row; align-items: top;">
+            <div style="padding: 10px; flex: 2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.807199266442!2d77.27087171492126!3d28.545514282452224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3e564daac1d%3A0x2c582e340e7bc556!2sIndraprastha%20Institute%20of%20Information%20Technology%20Delhi!5e0!3m2!1sen!2sin!4v1626549513195!5m2!1sen!2sin"  style="border:0; width:100%; height: 100%"  loading="lazy"></iframe>
+
+             </div>
+             
+             <div style="flex: 1; margin-left: 50px">
+                <div>
+                    <!-- About Us Section -->
+    
+                    <div class="section-heading" style="text-align: left;">Members</div>
+
+                    <!-- Jaspreet's Profile Feature -->
+
+                    <div class="feature-text">
+                        <h3>Jaspreet Kaur Dhanjal</h3>
+                        <p>
+                            <a href="mailto:jaspreet@iiitd.ac.in" target="_blank">Email</a> | 
+                            <a href="https://www.linkedin.com/in/jaspreet-kaur-dhanjal-6208951a3/" target="_blank">LinkedIn</a>
+                        </p>
+                    </div>
+
+                    <!-- Udit's Profile Feature -->
+                    <div class="feature-text">
+                            <h3>Udit</h3>
+                            <p>
+                                Developer | PrediLnc<br>
+                                <a href="mailto:udit21213@iiitd.ac.in" target="_blank">Email</a> | 
+                                <a href="https://www.linkedin.com/in/udit-iiitd-40014123a" target="_blank">LinkedIn</a>
+                            </p>
+                    </div>
+    
+                    <!-- Shruti's Profile Feature -->
+                    
+                        <div class="feature-text">
+                            <h3>Shruti Kaushal</h3>
+                            <p>
+                                Co-Developer | PrediLnc<br>
+                                <a href="mailto:shrutii@iiitd.ac.in" target="_blank">Email</a> | 
+                                <a href="https://www.linkedin.com/in/shruti-kaushal-9936248b/" target="_blank">LinkedIn</a>
+                            </p>
+                        </div>
+
+                    <!-- Dhvani's Profile Feature -->
+
+                        <div class="feature-text">
+                            <h3>Dhvani S. Vora</h3>
+                            <p>
+                                <a href="mailto:vora.dhvani@mayo.edu" target="_blank">Email</a> | 
+                                <a href="https://www.linkedin.com/in/dhvani-vora-97470310a/" target="_blank">LinkedIn</a>
+                            </p>
+                        </div>
+
+                    <!-- Shashank's Profile Feature -->
+
+                        <div class="feature-text">
+                            <h3>Shashank Yadav</h3>
+                            <p>
+                                <a href="mailto:shashank@arizona.edu" target="_blank">Email</a> | 
+                                <a href="https://www.linkedin.com/in/xinformatics/" target="_blank">LinkedIn</a>
+                            </p>
+                        </div>
+
+                    
+                </div>
+                <hr>
+                <div style="margin-top: 30px">
+                    <div class="section-heading" style="text-align: left;">Address</div>
+                    <p style="text-align: left;">Department of Computational Biology<br>
+                       Indraprastha Institute of Information Technology, Delhi <br>
+                       Okhla Industrial Estate, Phase III<br>
+                       Delhi, New Delhi<br>
+                       India 110020
+                    </p>
+                    
+
+                </div>
+        
+            </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrediLnc - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+
+        .divider {
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .section-heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333333;
+            text-align: center;
+        }
+
+        .feature {
+            display: flex;
+            align-items: justify;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
+           
+            
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .feature-img {
+            width: 25%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            flex: 5;
+            text-align: justify;
+            color: #666666;
+            font-size: medium;
+            width: 1px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+            .feature-text {
+            flex: 5;
+            text-align: justify;
+            color: #666666;
+            font-size: medium;
+            width: 245px;
+        }
+
+            .section-heading {
+                font-size: 1.5em;
+            }
+
+            .section-box {
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+      </nav>
+    <!-- Specific section content for each page -->
+    <section class="features">
+        <div class="main-content">
+            <!-- LncRNA Features -->
+            <div class="section-box">
+                <div class="section-heading">LncRNA Features</div>
+                <div class="features-list">
+                    <!-- First 4 features -->
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='kmer.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                            <h3>Kmer Frequency (k=3)</h3>
+                            <p>
+                                K-mer frequency (with k=3) analyzes trinucleotide patterns within lncRNAs, revealing unique sequence characteristics that differentiate them from other RNA types. This feature aids in understanding lncRNA structure, function, and disease associations by identifying distinct trinucleotide motifs that influence cellular processes and disease mechanisms.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='levdis.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                        <h3>Levenshtein Distance</h3>
+                        <p>
+                            Levenshtein distance measures sequence dissimilarity by counting the minimal edits needed to transform one sequence into another. In lncRNAs, it helps quantify sequence variation, providing a critical feature for predicting lncRNA functionality and disease associations by capturing subtle sequence differences.
+                        </p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='lga.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                        <h3>LncRNA Target Association</h3>
+                        <p>
+                            LncRNA-target associations with proteins, miRNAs, mRNAs, etc., are crucial for understanding lncRNA roles in regulatory mechanisms and disease pathways. This feature enriches models by linking lncRNAs to their functional relevance and potential disease implications, aiding in accurate disease association predictions.
+
+                            <!-- <img src="{{ url_for('static', filename='pie_lg.png') }}" alt="Kmer Frequency Image" class="feature-img"> -->
+                        
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='gip_lnc.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                            <h3>Gaussian Interaction Profile for lncRNAs</h3>
+                            <p>
+                                The Gaussian Interaction Profile (GIP) represents the interaction strength between lncRNAs and their targets, derived from an lncRNA-disease association matrix. GIP features enhance predictive models by capturing complex lncRNA-target relationships, improving the inference of lncRNA-disease associations.    
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease Features -->
+            <div class="section-box">
+                <div class="section-heading">Disease Features</div>
+                <div class="features-list">
+                    <!-- First 4 features -->
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='dss.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                            <h3>Disease Semantic Similarity</h3>
+                            <p>
+                                Disease semantic similarity, computed using the DOSE package in R, quantifies the relationships between diseases based on their annotations. Incorporating this feature in lncRNA-disease models allows for a nuanced understanding of disease associations, enhancing prediction accuracy by considering disease proximity and shared biological pathways.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='dsa.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                            <h3>Disease Gene Association</h3>
+                            <p>
+                                Disease gene associations provide insights into the genetic basis of diseases, enhancing lncRNA-disease association matrices. This feature captures lncRNA interactions with disease-associated genes, aiding in identifying genetic factors linked to diseases and improving the predictive capacity of disease association models.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='gip_dis.png') }}" alt="Kmer Frequency Image" class="feature-img">
+                        <div class="feature-text">
+                            <h3>Gaussian Interaction Profile for diseases</h3>
+                            <p>
+                                The Gaussian Interaction Profile (GIP) for diseases, derived from an lncRNA-disease association matrix, encodes disease relationships in a continuous space. By transforming association scores into Gaussian-distributed values, GIP features capture underlying patterns, enabling machine learning models to make accurate lncRNA-disease predictions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    
+</body>
+
+<footer>
+    <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+</footer>
+</html>

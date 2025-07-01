@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select lncRNAs, Diseases, and Targets</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Basic styling */
+      body {
+        font-family: Georgia, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Apply border-box globally */
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit; /* Inherit border-box for all elements */
+        }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Select box styles */
+      .select-box {
+        margin-bottom: 20px;
+      }
+
+      .select-box label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 1.2em;
+      }
+
+      .select-box select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 1.2em;
+      }
+
+      /* Submit button */
+      .submit-button {
+        padding: 12px 24px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-button:hover {
+        background-color: #45a049;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #273746;
+        color: #ffffff;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2em;
+        font-weight: 650;
+        letter-spacing: 1px;
+      }
+
+      /* Navigation Styles */
+      .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+    .divider {
+        margin: 0 30px;
+        border-left: 2px solid #090404;
+        height: 24px;
+      }
+
+      .navbar a:hover {
+        background-color: #0a4058;
+      }
+
+      /* lncRNA Container */
+      .lncRNA-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 60%;
+        margin: 0 auto;
+      }
+
+      .lncRNA-info-box {
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .lncRNA-info-box h2 {
+        margin-bottom: 15px;
+        color: #333;
+        font-size: 1.8em;
+      }
+
+      .lncRNA-info-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .lncRNA-info-box li {
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 1.2em;
+      }
+
+      .submit-button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            background-color: #273746;
+            color: #f4f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+      .final-submit-btn {
+          padding: 12px 24px;
+          font-size: 1.2em;
+          border: none;
+          border-radius: 5px;
+          background-color: #273746;
+          color: #f4f0f0;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+
+
+
+      /* Final Submit Button */
+      
+
+      .final-submit-btn:hover {
+        background-color: #273746;
+      }
+
+      footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+
+        header {
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+        }
+        
+        
+        .navbar {
+          flex-direction: column;
+          padding: 10px;
+        }
+
+        .divider {
+          display: none; /* Remove dividers */
+        }
+
+        .lncRNA-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      }
+
+      .normal-btn{
+         width: fit-content; 
+        height: fit-content;
+
+      }
+
+      
+    </style>
+  </head>
+  
+</html>
+
+  <body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+      <div style="text-align: left;">
+    
+        <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+    
+        <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+    
+      </div>
+    <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+    
+        <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+    
+      </div></header>
+    </header>
+
+    <nav class="navbar">
+      <a href="/">Home</a>
+      <span class="divider"></span>
+      <a href="/about">About Features</a>
+      <span class="divider"></span>
+      <a href="/evidences">Insights</a>
+      <span class="divider"></span>
+      <a href="/contribute">Contribute</a>
+      <span class="divider"></span>
+      <a href="/about-us">Contact</a>
+    </nav>
+
+    <div class="lncRNA-container">
+      <div class="lncRNA-info-box">
+        <ul>
+          <form id="myForm" method="POST" action="/input_disease_selected" >
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+              <div style="flex: 1; margin-right: 50px">
+                <div class="select-box">
+                  <label for="disease-dropdown">Select a disease:</label>
+                  <style>
+                            /* Custom styles for Select2 dropdown */
+                            .select2-container .select2-dropdown .select2-results__option {
+                                font-size: 13px; 
+                            }
+                        </style>
+                  <select id="disease-dropdown" name="disease" class="select2">
+                    <!-- Replace this section with your disease options -->
+                    <option value="" disabled selected hidden>
+                      Select a disease
+                    </option>
+                    {% for dis in diseases %}
+                    <option value="{{ dis }}">{{ dis }}</option>
+                    {% endfor %}
+                    <!-- <option value="Other">Other</option> -->
+                    <!-- Option for 'Other' -->
+                  </select>
+                </div>
+    
+                <!-- <div
+                  class="select-box"
+                  id="custom-disease-section"
+                  style="display: none"
+                >
+                  <label for="custom-disease">Enter Other disease name:</label>
+                  <input type="text" id="custom-disease" name="custom-disease" />
+                </div> -->
+              </div>
+
+              <input class="normal-btn" style="flex:0;" type="submit" value="Submit disease" />
+
+            </div>
+
+            <div id="selected-disease-section" style="display: none">
+              <h4>Selected disease:</h4>
+              <p id="selected-disease"></p>
+            </div>
+            <div id="dynamic-input-section" style="display: none">
+              <label for="doid-input">Enter DOID:</label>
+              <input type="text" id="doid-input" name="doid-input" />
+              <button id="submit-doid-btn">Submit DOID</button>
+            </div>
+          </form>
+
+          <!-- Section to display selected disease -->
+
+            <div class="option-buttons" id="prediction-button-section" style="display: none;">
+              <form id="submitForm" action="/submit" method="post">
+                  <button type="submit" id="show-prediction-btn">
+                      Data for the given disease is available. You can view the prediction based on existing data or provide additional input below to refine the results.
+                  </button>
+              </form>
+
+              <div id="loadingBarContainer2" style="display: none; margin-top: 15px;">
+                  <div id="loadingStatus2" style="margin-bottom: 5px; font-weight: bold; color: #333;">Initializing...</div>
+                  <div style="width: 100%; background: #e0e0e0; border-radius: 10px; overflow: hidden; height: 25px;">
+                      <div id="loadingBar2" style="width: 0%; height: 100%; background: #4caf50; transition: width 0.3s;"></div>
+                  </div>
+                  <div id="loadingPercent2" style="text-align: right; margin-top: 5px; font-size: 0.9em; color: #555;">0%</div>
+              </div>
+
+              <script>
+                  document.getElementById('submitForm').addEventListener('submit', function(event) {
+                      event.preventDefault();
+
+                      const loadingBarContainer = document.getElementById('loadingBarContainer2');
+                      const loadingBar = document.getElementById('loadingBar2');
+                      const loadingPercent = document.getElementById('loadingPercent2');
+                      const loadingStatus = document.getElementById('loadingStatus2');
+
+                      loadingBarContainer.style.display = 'block';
+                      loadingBar.style.width = '0%';
+                      loadingPercent.textContent = '0%';
+                      loadingStatus.textContent = 'Submitting...';
+
+                      fetch('/submit', {
+                          method: 'POST',
+                          body: new FormData(event.target)
+                      }).then(() => {
+                          const pollInterval = setInterval(() => {
+                              fetch('/progress')
+                                  .then(r => r.json())
+                                  .then(data => {
+                                      const percent = Math.min(data.percent, 100);
+                                      loadingBar.style.width = percent + '%';
+                                      loadingPercent.textContent = percent + '%';
+                                      loadingStatus.textContent = data.message || 'Processing...';
+
+                                      if (percent >= 100 || data.message === 'Done') {
+                                          clearInterval(pollInterval);
+                                          loadingStatus.textContent = 'Completed! Redirecting...';
+                                          setTimeout(() => {
+                                              window.location.href = '/result';
+                                          }, 300);
+                                      }
+                                  });
+                          }, 1000);
+                      });
+                  });
+              </script>
+            </div>
+
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+          <script>
+            $(document).ready(function () {
+              $(".select2").select2({
+                tags: true,
+                createTag: function (params) {
+                  return {
+                    id: params.term,
+                    text: params.term,
+                    newTag: true,
+                  };
+                },
+              });
+
+              $("#disease-dropdown").change(function () {
+                if ($(this).val() === "Other") {
+                  $("#custom-disease-section").show();
+                } else {
+                  $("#custom-disease-section").hide();
+                }
+              });
+
+              $("#myForm").submit(function (event) {
+                event.preventDefault();
+
+                var selectedOption = $("#disease-dropdown").val();
+                if (selectedOption === "Other") {
+                  var customDisease = $("#custom-disease").val();
+                  if (customDisease.trim() !== "") {
+                    selectedOption = customDisease;
+                  }
+                }
+
+                $.ajax({
+                  type: "POST",
+                  url: "/input_disease_selected",
+                  data: { disease: selectedOption },
+                  success: function (response) {
+                    $("#selected-disease").text(selectedOption);
+                    $("#selected-disease-section").show();
+
+                    if (response.show_button1) {
+                      $("#prediction-button-section").show();
+                    } else {
+                      $("#prediction-button-section").hide();
+                    }
+
+                    if (response.show_button2) {
+                      $("#dynamic-input-section").show();
+
+                      // Avoid multiple bindings
+                      $("#submit-doid-btn").off("click").on("click", function (e) {
+                        e.preventDefault();
+                        var doidInput = $("#doid-input").val();
+
+                        $.ajax({
+                          type: "POST",
+                          url: "/input_disease_selected",
+                          data: { doid: doidInput },
+                          success: function (res) {
+                            if (res.success) {
+                              console.log("DOID accepted:", res.doid);
+                              $("#doidDisplay").text("DOID: " + res.doid);
+                            } else {
+                              alert("Error: " + (res.message || "Invalid DOID or disease not recognized."));
+                            }
+                          },
+                          error: function (xhr, status, error) {
+                            console.error("DOID submit error:", error);
+                            alert("An error occurred while submitting the DOID.");
+                          },
+                        });
+                      });
+
+                    } else {
+                      $("#dynamic-input-section").hide();
+                    }
+
+                    console.log(response);
+                  },
+                  error: function (xhr, status, error) {
+                    console.error("Disease submit error:", error);
+                    alert("Failed to fetch data for the selected disease. It may not have an associated DOID.");
+                  }
+                  ,
+                });
+              });
+
+              $("#show-prediction-btn").click(function () {
+           
+              });
+            });
+          </script>
+
+          <br />
+
+          <button id="showDoidBtn">Show DOID</button>
+          <p id="doidDisplay"></p>
+
+          <script>
+            // When the button is clicked
+            $("#showDoidBtn").click(function () {
+              // Make a request to the Flask backend
+              $.ajax({
+                type: "GET",
+                url: "/get_doid", // Route to get DOID from Flask
+                success: function (response) {
+                  // Display the received DOID in the paragraph with id 'doidDisplay'
+                  $("#doidDisplay").text("DOID: " + response.doid);
+                },
+                error: function (error) {
+                  console.log(error);
+                },
+              });
+            });
+          </script>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lncRNA-container">
+      <div class="lncRNA-info-box">
+        <ul>
+          <style>
+            /* Fixed height for the select box */
+            #lncRNASelect {
+              height: 200px; /* Adjust this value as needed */
+              overflow-y: scroll;
+              width: 200px;
+            }
+          </style>
+
+          <!-- Form for selecting lncRNAs -->
+          <form
+            id="lncRNAForm"
+            enctype="multipart/form-data"
+            action="/input_lncRNA_forDiseease"
+          >
+            <div style="display: flex; flex-direction: row; justify-content: space-between; gap:50px">
+                <div style="flex:1">
+
+                  <h4>Select lncRNAs</h4>
+                  <input
+                    style = "width:100%"
+                    type="text"
+                    id="searchInput"
+                    onkeyup="searchlncRNAs()"
+                    placeholder="Search for lncRNAs"
+                  />
+                  <br /><br />
+                  <select style = "width:100%" multiple name="lncRNAs" id="lncRNASelect">
+                    <!-- Your lncRNA options here -->
+                    {% for lncRNA in lncRNA_names %}
+                    <option
+                      value="{{ lncRNA }}"
+                      {%
+                      if
+                      lncRNA
+                      in
+                      submitted_data
+                      %}
+                      selected
+                      {%
+                      endif
+                      %}
+                    >
+                      {{ lncRNA }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <br /><br />
+                  <button type="button" onclick="clearSelection()">
+                    Clear Selection
+                  </button>
+                  <br /><br />
+    
+                </div>
+                <div style="margin-top: 100px">or</div>
+                <div style="flex:1;">
+                  <!-- File input field -->
+                   <style>
+                                @media (max-width: 500px) {
+                                    .small-screen-60-width{
+                                    max-width: 60%; 
+                                    }
+                                }
+                            </style>
+                <h4 class="small-screen-60-width">
+                  Enter the text file containing lncRNA names line by line:
+                  </h4>
+                  <input type="file" id="fileInput" name="fileInput" accept=".txt" />
+                  <br /><br />
+                  <!-- Show selected lncRNAs button -->
+                  <button type="button" onclick="showSelectedlncRNAs()">
+                    Show Selected lncRNAs
+                  </button>
+                  <br /><br />
+    
+                </div>
+
+            </div>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+              <!-- Submit button -->
+              <input type="submit" value="Submit Selection" />
+
+            </div>
+            
+            
+            
+            
+          </form>
+
+          
+
+          <h4>Selected Diseases:</h4>
+
+          <div id="selectedlncRNAsContainer"></div>
+
+          <script>
+            var selectedOptions = [];
+
+            function storeSelectedOptions() {
+              var select = document.getElementById("lncRNASelect");
+              var options = select.getElementsByTagName("option");
+              selectedOptions = [];
+
+              for (var i = 0; i < options.length; i++) {
+                if (options[i].selected) {
+                  selectedOptions.push(options[i].value);
+                }
+              }
+            }
+
+            function restoreSelectedOptions() {
+              var select = document.getElementById("lncRNASelect");
+              var options = select.getElementsByTagName("option");
+
+              for (var i = 0; i < options.length; i++) {
+                if (selectedOptions.includes(options[i].value)) {
+                  options[i].selected = true;
+                }
+              }
+            }
+
+            function searchlncRNAs() {
+              storeSelectedOptions();
+
+              var input, filter, select, option, i;
+              input = document.getElementById("searchInput");
+              filter = input.value.toUpperCase();
+              select = document.getElementById("lncRNASelect");
+              option = select.getElementsByTagName("option");
+
+              for (i = 0; i < option.length; i++) {
+                if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  option[i].style.display = "";
+                } else {
+                  option[i].style.display = "none";
+                }
+              }
+              select.style.height = "200px";
+              restoreSelectedOptions();
+            }
+
+            function clearSelection() {
+              var select = document.getElementById("lncRNASelect");
+              var options = select.getElementsByTagName("option");
+
+              for (var i = 0; i < options.length; i++) {
+                options[i].selected = false;
+                options[i].style.display = ""; // Reset display style
+              }
+            }
+
+            function showSelectedlncRNAs() {
+              storeSelectedOptions(); // Update selectedOptions array with scroll bar selections
+
+              var selectedFromScrollBar = selectedOptions;
+              var selectedFromFileUpload = []; // Array to hold selected lncRNAs from file upload
+
+              var fileInput = document.getElementById("fileInput");
+              var file = fileInput.files[0];
+
+              if (file) {
+                var reader = new FileReader();
+                reader.readAsText(file, "UTF-8");
+                reader.onload = function (evt) {
+                  var fileContent = evt.target.result;
+                  selectedFromFileUpload = fileContent
+                    .split("\n")
+                    .map((item) => item.trim())
+                    .filter((item) => item !== "");
+                  displaySelectedlncRNAs(
+                    selectedFromScrollBar.concat(selectedFromFileUpload)
+                  );
+                };
+                reader.onerror = function (evt) {
+                  console.error("Error reading file");
+                };
+              } else {
+                displaySelectedlncRNAs(selectedFromScrollBar);
+              }
+            }
+
+            function displaySelectedlncRNAs(selectedlncRNAs) {
+              var selectedlncRNAsContainer = document.getElementById(
+                "selectedlncRNAsContainer"
+              );
+              selectedlncRNAsContainer.innerHTML = ""; // Clear previous content
+
+              var ul = document.createElement("ul");
+              selectedlncRNAs.forEach(function (lncRNA) {
+                var li = document.createElement("li");
+                li.textContent = lncRNA;
+                ul.appendChild(li);
+              });
+
+              selectedlncRNAsContainer.appendChild(ul);
+            }
+
+            // Modify the form submission logic to include displaying selected lncRNAs
+            document
+              .getElementById("lncRNAForm")
+              .addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Show the selected lncRNAs
+                showSelectedlncRNAs();
+
+                // Your existing form submission logic
+                fetch("/input_lncRNA_forDiseease", {
+                  method: "POST",
+                  body: new FormData(document.getElementById("lncRNAForm")),
+                })
+                  .then((response) => {
+                    // Handle the response as needed
+                  })
+                  .catch((error) => {
+                    // Handle errors
+                  });
+              });
+          </script>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lncRNA-container">
+      <div class="lncRNA-info-box">
+        <ul>
+            <style>
+                /* Fixed height for the select box */
+                #targetSelect {
+                  height: 200px; /* Adjust this value as needed */
+                  overflow-y: scroll;
+                  width: 200px;
+                }
+            </style>
+          <div class="option-buttons">
+            
+            
+            <form id="targetForm" enctype="multipart/form-data" >
+              <div style="display: flex; flex-direction: row; justify-content: space-between; gap:50px">
+                <div style="flex:1">
+                  <!-- Form for selecting targets -->
+                  <h4 class="small-screen-60-width">Select Genes related to selected Disease</h4>
+                  <input
+                    style="width: 100%"
+                    type="text"
+                    id="searchTarget"
+                    onkeyup="searchTargets()"
+                    placeholder="Search for genes"
+                  />
+                  <br /><br />
+                  <select style="width: 100%" multiple name="genes" id="targetSelect">
+                    <!-- Your target options here -->
+                    {% for target in disease_genes %}
+                    <option
+                      value="{{ target }}"
+                      {%
+                      if
+                      target
+                      in
+                      submitted_data
+                      %}
+                      selected
+                      {%
+                      endif
+                      %}
+                    >
+                      {{ target }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <br /><br />
+                  <button type="button" onclick="clearSelectionTarget()">
+                    Clear Selection
+                  </button>
+                  <br /><br />
+                </div>
+                <div style="margin-top: 80px;">or</div>
+                <div style="flex:1">
+                  <!-- File input field -->
+                  <h4>
+                    Enter the text file containing target names line by line:
+                  </h4>
+                  <input
+                    type="file"
+                    id="fileTarget"
+                    name="fileInput"
+                    accept=".txt"
+                  />
+                  <br /><br />
+                  <!-- Show selected targets button -->
+                  <button type="button" onclick="showSelectedTargets()">
+                    Show Selected Targets
+                  </button>
+                  <br /><br />
+                </div>
+
+              </div>
+              
+              <!-- Submit button -->
+              <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                <input type="submit" value="Submit Selection" />
+              </div>
+              
+              
+            </form>
+
+            
+            
+            <h4>Selected targets:</h4>
+
+            <div id="selectedTargetsContainer"></div>
+
+            <script>
+              var selectedTargets = [];
+
+              function storeSelectedTargets() {
+                var select = document.getElementById("targetSelect");
+                var options = select.getElementsByTagName("option");
+                selectedTargets = [];
+
+                for (var i = 0; i < options.length; i++) {
+                  if (options[i].selected) {
+                    selectedTargets.push(options[i].value);
+                  }
+                }
+              }
+
+              function restoreSelectedTargets() {
+                var select = document.getElementById("targetSelect");
+                var options = select.getElementsByTagName("option");
+
+                for (var i = 0; i < options.length; i++) {
+                  if (selectedTargets.includes(options[i].value)) {
+                    options[i].selected = true;
+                  }
+                }
+              }
+
+              function searchTargets() {
+                storeSelectedTargets();
+
+                var input, filter, select, option, i;
+                input = document.getElementById("searchTarget");
+                filter = input.value.toUpperCase();
+                select = document.getElementById("targetSelect");
+                option = select.getElementsByTagName("option");
+
+                for (i = 0; i < option.length; i++) {
+                  if (
+                    option[i].textContent.toUpperCase().indexOf(filter) > -1
+                  ) {
+                    option[i].style.display = "";
+                  } else {
+                    option[i].style.display = "none";
+                  }
+                }
+                restoreSelectedTargets();
+              }
+              function clearSelectionTarget() {
+                var selectTarget = document.getElementById("targetSelect");
+                var options = selectTarget.getElementsByTagName("option");
+
+                for (var i = 0; i < options.length; i++) {
+                  options[i].selected = false;
+                  options[i].style.display = ""; // Reset display style
+                }
+              }
+              function showSelectedTargets() {
+                storeSelectedTargets();
+
+                var selectedFromScrollBar = selectedTargets;
+                var selectedFromFileUpload = [];
+
+                var fileInputTarget = document.getElementById("fileTarget");
+                var file = fileInputTarget.files[0];
+
+                if (file) {
+                  var reader = new FileReader();
+                  reader.readAsText(file, "UTF-8");
+                  reader.onload = function (evt) {
+                    var fileContent = evt.target.result;
+                    selectedFromFileUpload = fileContent
+                      .split("\n")
+                      .map((item) => item.trim())
+                      .filter((item) => item !== "");
+                    displaySelectedTargets(
+                      selectedFromScrollBar.concat(selectedFromFileUpload)
+                    );
+                  };
+                  reader.onerror = function (evt) {
+                    console.error("Error reading file");
+                  };
+                } else {
+                  displaySelectedTargets(selectedFromScrollBar);
+                }
+              }
+
+              function displaySelectedTargets(selectedTargets) {
+                var selectedTargetsContainer = document.getElementById(
+                  "selectedTargetsContainer"
+                );
+                selectedTargetsContainer.innerHTML = "";
+
+                var ul = document.createElement("ul");
+                selectedTargets.forEach(function (target) {
+                  var li = document.createElement("li");
+                  li.textContent = target;
+                  ul.appendChild(li);
+                });
+
+                selectedTargetsContainer.appendChild(ul);
+              }
+
+              document
+                .getElementById("targetForm")
+                .addEventListener("submit", function (event) {
+                  event.preventDefault();
+
+                  showSelectedTargets();
+
+                  fetch("/input_genes_disease", {
+                    method: "POST",
+                    body: new FormData(document.getElementById("targetForm")),
+                  })
+                    .then((response) => {
+                      // Handle the response as needed
+                    })
+                    .catch((error) => {
+                      // Handle errors
+                    });
+                });
+            </script>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    
+<div class="lncRNA-container">
+    <div class="lncRNA-info-box">
+        <ul>
+            <div class="option-buttons">
+                <!-- FINAL SUBMIT FORM: this triggers the threaded task + progress -->
+                <form id="finalSubmitForm">
+                    <input type="submit" class="submit-button" value="Final Submit">
+                </form>
+
+                <div id="entryErrorBox" style="display: none; margin-top: 20px; padding: 10px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px;">
+                  ⚠️ <strong>Invalid Entry:</strong> Please check your provided entries and try again.
+                </div>
+
+
+
+                <!-- PROGRESS BAR SECTION -->
+                <div id="loadingBarContainer" style="display: none; margin-top: 15px;">
+                    <div id="loadingStatus" style="margin-bottom: 5px; font-weight: bold; color: #333;">Initializing...</div>
+                    <div style="width: 100%; background: #e0e0e0; border-radius: 10px; overflow: hidden; height: 25px;">
+                        <div id="loadingBar" style="width: 0%; height: 100%; background: #4caf50; transition: width 0.3s;"></div>
+                    </div>
+                    <div id="loadingPercent" style="text-align: right; margin-top: 5px; font-size: 0.9em; color: #555;">0%</div>
+                </div>
+
+                
+
+                <!-- SCRIPT SECTION -->
+                <script>
+document.getElementById('finalSubmitForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const loadingBarContainer = document.getElementById('loadingBarContainer');
+    const loadingBar = document.getElementById('loadingBar');
+    const loadingPercent = document.getElementById('loadingPercent');
+    const loadingStatus = document.getElementById('loadingStatus');
+    const entryErrorBox = document.getElementById('entryErrorBox');
+
+    // Reset states
+    entryErrorBox.style.display = 'none';
+    loadingBarContainer.style.display = 'block';
+    loadingBar.style.width = '0%';
+    loadingPercent.textContent = '0%';
+    loadingStatus.textContent = 'Submitting your data...';
+
+    fetch('/submit', {
+        method: 'POST',
+        body: new FormData(form)
+    }).then(response => {
+        if (!response.ok) throw new Error('Submission failed.');
+        const pollInterval = setInterval(() => {
+            fetch('/progress')
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to fetch progress.');
+                    return response.json();
+                })
+                .then(data => {
+                    const percent = Math.min(data.percent || 0, 100);
+                    loadingBar.style.width = percent + '%';
+                    loadingPercent.textContent = `${percent}%`;
+                    loadingStatus.textContent = data.message || 'Processing...';
+
+                    if (data.error) {
+                        clearInterval(pollInterval);
+                        loadingBarContainer.style.display = 'none';
+                        entryErrorBox.style.display = 'block';
+                    }
+
+                    if (percent >= 100 || data.done) {
+                        clearInterval(pollInterval);
+                        if (!data.error) {
+                            loadingBar.style.width = '100%';
+                            loadingPercent.textContent = '100%';
+                            loadingStatus.textContent = 'Completed! Redirecting...';
+                            setTimeout(() => {
+                                window.location.href = '/result';
+                            }, 500);
+                        }
+                    }
+                })
+                .catch(error => {
+                    clearInterval(pollInterval);
+                    entryErrorBox.style.display = 'block';
+                    loadingBarContainer.style.display = 'none';
+                });
+        }, 1000);
+    }).catch(error => {
+        entryErrorBox.style.display = 'block';
+        loadingBarContainer.style.display = 'none';
+    });
+});
+</script>
+
+
+            </div>
+        </ul>
+    </div>
+</div>
+
+
+    
+
+  <footer>
+    <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+  </footer>
+</html>

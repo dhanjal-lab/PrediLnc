@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrediLnc - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+
+        .divider {
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 20px;
+            background-color: #f4f7f9;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .section-box {
+            max-width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 28px;
+            color: #333333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .app-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .app-list li {
+            margin-bottom: 20px;
+        }
+
+        .app-title {
+            font-size: 20px;
+            color: #0056b3;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .app-description p {
+            margin: 5px 0;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        .app-description strong {
+            color: #333333;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        figure {
+            display: block;
+            margin-block-start: 3em;
+            margin-block-end: 3em;
+            margin-inline-start: 40px;
+            margin-inline-end: 40px;
+            unicode-bidi: isolate;
+            margin: 5em auto;
+            /* Centers the figure element horizontally */
+            text-align: justify;
+            /* Centers the text within the figure */
+
+            width: 100%;
+            max-width: 85%;
+            border: 2px solid #000;
+            padding: 1em;
+            background-color: white;
+
+
+        }
+
+        .figure-img {
+            width: 100%;
+            /* Adjusts the image to the width of the figure */
+            height: auto;
+            /* Maintains the aspect ratio of the image */
+        }
+
+        .feature-text {
+            width: 100%;
+            /* Adjusts the image to the width of the figure */
+            height: auto;
+            /* Maintains the aspect ratio of the image */
+            padding: 10em;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .feature-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            flex: 1;
+            text-align: justify;
+            color: #666666;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            /* Space images evenly */
+            padding: 50px;
+            border: 2px solid #020101;
+            border-radius: 50px;
+            width: 80%;
+            background-color: #f9f9f9;
+            margin-bottom: 2px;
+            flex-wrap: nowrap;
+            margin: 1em auto;
+            /* Centers the figure element horizontally */
+            gap: 100px;
+            text-align: justify;
+            /* Centers the text within the figure */
+
+
+        }
+
+        .container-heading {
+            text-align: center;
+            /* Center the heading */
+            margin-bottom: 10px;
+            /* Space between heading and container */
+        }
+
+        .container-heading h2 {
+            font-size: 24px;
+            /* Adjust font size as needed */
+            font-weight: bold;
+            color: #333;
+            /* Color of the heading */
+            margin: 0;
+            /* Remove default margin */
+        }
+
+
+        .image-wrapper {
+            margin: 0;
+            text-align: center;
+            /* Centers the text below the image */
+            max-width: 100%;
+            /* Controls the width of each image-wrapper */
+            flex: 1;
+            /* Ensures all image-wrappers are evenly distributed */
+            padding: 0;
+
+        }
+
+        .image {
+            width: 100%;
+            /* Adjusts the image to the width of the wrapper */
+            height: auto;
+            /* Maintains the aspect ratio of the image */
+            border: 2px solid #000;
+            /* Adds a border around the image */
+            border-radius: 5px;
+            /* Adds rounded corners to the image */
+            margin-bottom: 5px;
+            /* Adds space between the image and the text */
+        }
+
+        .case-studies-table {
+            width: 90%;
+            /* Full width table */
+            border-collapse: collapse;
+            /* Remove space between borders */
+
+            font-family: Arial, sans-serif;
+            /* Set font for the table */
+            margin: 3em auto;
+            table-layout: fixed;
+            text-align: justify;
+            padding: 1000px;
+            border: 2px solid #000;
+            border-radius: 3px;
+            background-color: white;
+
+        }
+
+        .case-studies-table th {
+            background-color: #f2f2f2;
+            /* Light grey background for the header */
+            color: #333;
+            /* Dark text color */
+            padding: 10px;
+            /* Padding inside the header cells */
+            text-align: center;
+            /* Center text in the header */
+            font-size: 24px;
+            /* Font size for the main heading */
+            border-radius: 3px;
+
+
+        }
+
+
+        .case-studies-table td {
+            padding: 15px;
+            /* Padding inside table cells */
+            border: 1px solid #0f0e0e;
+            /* Border around table cells */
+            vertical-align: top;
+            /* Align text to the top */
+        }
+
+        .case-studies-table h3 {
+            margin: 0 0 10px 0;
+            /* Margin for subheading */
+            font-size: 18px;
+            /* Font size for subheading */
+            color: #555;
+            /* Subheading color */
+            align-items: center;
+            text-align: center;
+        }
+
+        .case-studies-table p {
+            margin: 0;
+            /* Remove default paragraph margin */
+            font-size: 16px;
+            /* Font size for detailed explanation */
+            color: #333;
+            /* Text color */
+        }
+
+
+
+        .caption {
+            color: #666666;
+            font-size: 16px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .divider {
+                display: none;
+            }
+        }
+
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .feature-box {
+                flex: 1 1 100%;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .main-content h2 {
+                font-size: 1.8em;
+            }
+
+            .option-buttons a {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .main-content h2 {
+                font-size: 1.5em;
+
+            }
+
+            .feature-box h2 {
+                font-size: 1.2em;
+            }
+
+            .case-studies-table {
+                width: 80%;
+                /* Make table width 100% on smaller screens */
+                border: none;
+                /* Remove borders for a cleaner look */
+                align-items: center;
+                margin: 0 auto;
+            }
+
+            .case-studies-table th,
+            .case-studies-table td {
+                display: block;
+                /* Stack the columns vertically on smaller screens */
+                width: 100%;
+                /* Full width for each column */
+                text-align: left;
+                /* Align text to the left */
+                padding: 0px;
+                /* Adjust padding for smaller screens */
+            }
+
+            .case-studies-table th {
+                font-size: 18px;
+                /* Slightly reduce font size for smaller screens */
+                text-align: center;
+                /* Center the text in headers */
+            }
+
+            .case-studies-table h3 {
+                font-size: 16px;
+                /* Adjust subheading size */
+                text-align: center;
+                /* Align subheadings to the left */
+            }
+
+            .case-studies-table p {
+                font-size: 14px;
+                /* Adjust paragraph size */
+            }
+
+            .section-box {
+                padding: 15px;
+                /* Adjust padding to fit the screen */
+                margin: 0 auto;
+                /* Add some margin to the sides */
+            }
+
+            .container {
+                flex-direction: column;
+                /* Stack the content vertically */
+                padding: 20px;
+                /* Adjust padding */
+                width: 80%;
+                /* Ensure full width of the screen */
+                border: none;
+                /* Remove borders */
+                margin: 0 auto;
+                /* Remove margins */
+                gap: 20px;
+                /* Reduce the gap between elements */
+            
+            }
+
+            .container-heading h2 {
+                font-size: 20px;
+                /* Adjust heading font size */
+            }
+
+            .image-wrapper {
+                margin: 0 auto;
+                /* Center image wrappers */
+                width: 90%;
+                /* Make image wrapper width fit the screen */
+            }
+
+            .feature {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+                /* Reduce padding */
+            }
+
+            .feature-img {
+                width: 100%;
+                margin: 0 auto 20px auto;
+                /* Center the image and add margin */
+            }
+
+            .feature-text {
+                width: 100%;
+                text-align: justify;
+                font-size: 14px;
+                /* Reduce text size */
+            }
+
+            header h1 {
+                font-size: 1.5em;
+                /* Reduce font size in header */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+    </nav>
+    <figure class="figure">
+        <img src="{{ url_for('static', filename='workflow.png') }}" class="figure-img img-fluid rounded" alt="...">
+        <figcaption class="figure-caption">
+            The workflow of the GARNet model includes 5 major steps:-
+            <ol>
+                <li>
+                    Construct the lncRNA-lncRNA association matrices using different features like sequence, and
+                    lncRNA-target association information. The disease-disease association matrix uses disease semantic
+                    similarity and disease gene association information. Also, the gene-gene association matrix is based
+                    on cosine similarity between the association of genes with lncRNAs, and diseases. There might be a
+                    possibility for underrepresentation due to the absence of any feature category. The Gaussian
+                    interaction profile for lncRNAs and diseases was also constructed using the known lncRNA disease
+                    association to compensate for this.
+                </li>
+                <li>
+                    To reduce the bias of overrepresentation of some entities, the top 10 lncRNA, disease, and gene
+                    associations were extracted, and the graph was constructed. In the graph, each lncRNA, disease, and
+                    gene was considered as a node, its features were used as its attributes, and the edges denote the
+                    association between different entities.
+                </li>
+                <li>
+                    Autoencoder was used to reduce the dimensionality of the feature representation of each entity.
+                </li>
+                <li>
+                    To generate a better node representation of entities, 2 GCN blocks and 1 self-attention block are
+                    used.
+                </li>
+                <li>
+                    Finally, to get the association score, the ensemble technique, including 5 diverse ML models and a
+                    Random forest model as a meta-model, was used for each category of the feature.
+                </li>
+
+            </ol>
+
+        </figcaption>
+    </figure>
+
+    <div class="container-heading">
+        <h2>Model Performance and Insights</h2>
+    </div>
+
+
+    <div class="container">
+        <div class="image-wrapper">
+            <img src="{{ url_for('static', filename='model_1.png') }}" alt="Image 1" class="image">
+            <div class="caption">ROC-AUC</div>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="{{ url_for('static', filename='model_3.png') }}" alt="Image 3" class="image">
+            <div class="caption"> Feature Importance Plot</div>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="{{ url_for('static', filename='model_2.png') }}" alt="Image 2" class="image">
+            <div class="caption">
+                Precision-Recall Curve
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <table class="case-studies-table">
+        <thead>
+            <tr>
+                <th colspan="2">Case Studies</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <h3>LINC0026136</h3>
+                </td>
+                <td>
+                    <h3>Type 2 diabetes mellitus</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    <ul>
+                        <li>
+                            A recently discovered lncRNA, LINC0026136, gathered the attention of the research society in
+                            2021 as found to be abnormally expressed in human tumors.
+                        </li>
+                        <li>
+                            It primarily functions as a suppressor in cancers as well as found to be involved in
+                            processes like motility, chemoresistance, cell proliferation, apoptosis, and tumorigenesis.
+                        </li>
+                        <li>
+                            By conducting a manual search and a recent literature review, its role as a therapeutic
+                            biomarker is evident. As a result, on Pubmed, we found the top 5 hits as its relation with
+                            thyroid cancer (PMID: 34982424), colon cancer (PMID: 31850713), breast cancer (PMID:
+                            33274565), pancreatic cancer (PMID: 32020223), and cholangiocarcinoma (PMID: 34022894).
+                        </li>
+                        <li>
+                            Then, to evaluate the information related to LINC00261, we removed all its information from
+                            the training data and retrained the GARNet model. After that, PrediLnc was used to extract
+                            the top 10 associated diseases with LINC00261. The following disorders were the output:-
+                            ‘colonic neoplasms’, ‘melanoma’, ‘lung neoplasms’, ‘cholangiocarcinoma’, ‘osteoarthritis’,
+                            ‘adenocarcinoma of lung’, ‘carcinoma, renal cell’, ‘thyroid cancer, papillary’,
+                            'nasopharyngeal carcinoma', and 'pancreatic neoplasms'. Out of 5 published top results, we
+                            found 4 of them to be part of the top 10 diseases predicted for LINC00261.
+                        </li>
+                    </ul>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                    <ul>
+                        <li>
+                            Type 2 diabetes mellitus is a complex metabolic condition where the patient suffers from
+                            impaired glucose regulation37.
+                        </li>
+                        <li>
+                            Over the last five years, several lncRNAs have found a role in regulating insulin signaling,
+                            beta cell function, inflammation resistance, and epigenetic regulation.
+                        </li>
+                        <li>
+                            Similar activity was performed by doing a manual search on Pubmed, which shows the top 5
+                            hits as XIST (PMID: 36628211), NEAT1 (PMID: 36027040), CASC2 (PMID: 33155514), SNHG17 (PMID:
+                            31509021), and MALAT1 (PMID: MALAT1).
+                        </li>
+                        <li>
+                            When we searched about type 2 diabetes mellitus using PrediLnc, then the following lncRNAs
+                            were predicted:- ‘MALAT1’, ‘LINC00963’, ‘CASC2’, ‘WEE2-AS1’, ‘SNHG17’, ‘SNHG16’, ‘NEAT1’,
+                            ‘XIST’, ‘MIAT’, and ‘KCNQ5-AS1’. Here, we found all the top 5 hits from Pubmed were part of
+                            the top 10 predictions by PrediLnc.
+                        </li>
+                    </ul>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+      </footer>
+</body>
+
+</html>

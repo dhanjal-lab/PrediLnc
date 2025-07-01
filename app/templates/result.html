@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html>
+<!-- CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+<!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<head>
+    <title>Select lncRNAs, Diseases, and Targets</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Georgia, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Select box styles */
+        .select-box {
+            margin-bottom: 20px;
+        }
+
+        .select-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .select-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1.2em;
+        }
+
+        /* Submit button */
+        .submit-button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Styling when hovering over the button */
+        .submit-button:hover {
+            background-color: #45a049;
+            /* Darker green on hover */
+        }
+
+        header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 200em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+
+        .divider {
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        .navbar a:hover {
+            background-color: #0a4058;
+        }
+
+        /* Styling for the lncRNA container */
+        .styled-list {
+            counter-reset: list-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list>li {
+            counter-increment: list-counter;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .styled-list>li::before {
+            content: counter(list-counter) ".";
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lncRNA-container {
+            background-color: #f4f6f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .lncRNA-container h2 {
+            margin-top: 0;
+            color: #34495e;
+        }
+
+        .styled-sublist {
+            counter-reset: sublist-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+
+
+        .paper-details h5 {
+            margin: 0;
+          
+        }
+
+
+        /* Style for the lncRNA information box */
+        .lncRNA-info-box {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+            padding: 2px;
+            max-width: 1500px;
+            width: 100%;
+            /* Ensure the box fills the available width */
+            margin: 0 auto;
+            /*Center the box horizontally*/
+        }
+
+        /* Heading style */
+        .lncRNA-info-box h2 {
+            margin-bottom: 1em;
+            color: #333;
+            /* font-size: 1.8em; */
+        }
+
+        /* List style */
+        .lncRNA-info-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lncRNA-info-box li {
+            margin-bottom: 5px;
+            color: #666;
+            /* font-size: 1.2em; */
+        }
+
+        /* Styling for the final submit button */
+        .final-submit-btn {
+            padding: 14px 28px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .final-submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Styles for Paper Details */
+        .paper-details {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 2px;
+        }
+
+        .paper-details h5 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #333;
+            text-overflow: ellipsis;
+        }
+
+        .disease-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .disease-name {
+            margin: 0;
+            color: #34495e;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .association-score {
+            background-color: #8e44ad;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .paper-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .divider {
+                display: none;
+                /* Remove dividers */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Top 10 Associations with respect to {{selected_item}}</h2>
+
+        <ol class="styled-list">
+            {% for disease_name, paper_info in information_dic.items() %}
+            <li>
+                <div class="lncRNA-container">
+                    <div class="disease-header">
+                        <h2 class="disease-name">{{ disease_name }}</h2>
+                        <span class="association-score">Score: {{ paper_info[0] }}</span>
+                    </div>
+                    {% if paper_info[1] %}
+                    <!-- if paper_info[1] is not empty then only show Evidences  -->
+                    <h3>Evidences</h3>
+                    <div class="lncRNA-info-box">
+                        <ol class="styled-sublist">
+                            {% for paper in paper_info[1] %}
+                            <li>
+                                <div class="paper-details">
+                                    <h5><a href="{{ paper['link'] }}" target="_blank">{{ paper['title'] }}</a></h5>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <!-- <div class="lncRNA-container">
+        <div class="lncRNA-info-box">
+            <form id="submitForm" action="/goToSimilarity" method="post">
+                <button type="submit" class="final-submit-btn">Check similar {{check_item}}</button>
+            </form>
+        </div>
+    </div> -->
+    </div>
+
+    <!-- <footer>
+        <p>&copy; 2023 The Translational Biology Lab - PrediLnc. All Rights Reserved.</p>
+    </footer> -->
+
+    <!-- JavaScript for form submission -->
+    <script>
+        document.querySelector('.final-submit-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default button behavior
+            document.getElementById('submitForm').submit(); // Submit the form
+        });
+    </script>
+</body>
+
+<footer>
+    <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+</footer>
+</html>

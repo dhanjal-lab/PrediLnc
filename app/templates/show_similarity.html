@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+<!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<head>
+    <title>Select lncRNAs, Diseases, and Targets</title>
+    <style>
+
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        /* Select box styles */
+        .select-box {
+            margin-bottom: 20px;
+        }
+
+        .select-box label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .select-box select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        /* Submit button */
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            }
+
+            /* Styling when hovering over the button */
+            .submit-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+            }
+
+            header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #34495e;
+            padding: 10px 10px;
+            border-bottom: 2px solid #ccc;
+           
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #f7e9e9;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .divider{
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        .navbar a:hover {
+            background-color: #0a4058;
+        }
+
+        /* Styling for the lncRNA container */
+        .lncRNA-container {
+            width: 1200px;
+            display: ruby;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Style for the lncRNA information box */
+        .lncRNA-info-box {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 1500px;
+            width: 100%; /* Ensure the box fills the available width */
+            margin: 0 auto; /* Center the box horizontally */
+        }
+
+        /* Heading style */
+        .lncRNA-info-box h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* List style */
+        .lncRNA-info-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lncRNA-info-box li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        /* Styling for the final submit button */
+        .final-submit-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .final-submit-btn:hover {
+            background-color: #45a049;
+        }
+        /* Styles for Paper Details */
+        .paper-details {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .paper-details h5 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #333;
+            text-overflow: ellipsis;
+            
+          
+
+            
+
+        }
+        .paper-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+    </nav>
+    
+    
+    <h2> => Top 10 {{check_item}} associated with {{selected_item}}: </h2>
+    
+    <ul>
+        {% for disease, paper_info in information_dic.items()  %}
+            <li>
+                <div class="lncRNA-container">
+                    <h3>{{ disease }}</h3>
+                    <div class="lncRNA-info-box">
+                        <ul>
+                            {% for paper in paper_info %}
+                                <li>
+                                    <div class="paper-details">
+                                        <h5>Title: {{ paper['title'] }}</h5>
+                                        <p> <b>Link:</b> {{ paper['link'] }}</p>
+                                        <p> <b>Abstract:</b> {{ paper['abstract'] }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+      </footer>
+</body>
+</html>

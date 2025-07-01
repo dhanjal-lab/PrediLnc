@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrediLnc - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: #273746;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 650;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #34495e;
+      font-size: 1.1em;
+      padding: 2px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #f7e9e9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+
+        .divider {
+            margin: 0 30px;
+            border-left: 2px solid #090404;
+            height: 24px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333333;
+            text-align: center;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .feature-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            flex: 1;
+            text-align: justify;
+            color: #666666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            .section-heading {
+                font-size: 1.5em;
+            }
+
+            .section-box {
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #273746; color: #ffffff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="text-align: left;">
+      
+          <h1 style="font-size: 4.5em; font-weight: bold; margin-left: 30px; margin-bottom:3px;">PrediLnc</h1>
+      
+          <p style="font-style: italic; font-size: 1.5em; margin-left: 30px; margin-top: 0;">The LncRNA Disease Association Predictor</p>
+      
+        </div>
+      <style>
+      @media (max-width: 630px) {
+        .iiitd-image {
+          display: none; /* Hide the container on smaller screens */
+        }
+      }
+    </style>
+    
+    <div class="iiitd-image" style="margin-left: 20px; margin-right: 30px">
+      
+          <img src="{{ url_for('static', filename='icon.png') }}" alt="Icon" style="height: 150px;">
+      
+        </div></header>
+      </header>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <span class="divider"></span>
+        <a href="/about">About Features</a>
+        <span class="divider"></span>
+        <a href="/evidences">Insights</a>
+        <span class="divider"></span>
+        <a href="/contribute">Contribute</a>
+        <span class="divider"></span>
+        <a href="/about-us">Contact</a>
+      </nav>
+
+
+    <div class="main-content">
+        <div class="section-box">
+            <h2 class="section-heading">Applications of lncRNA Disease Associations</h2>
+            
+            <ul class="app-list">
+                <li>
+                    <div class="app-title">Disease Diagnosis and Prognosis</div>
+                    <div class="app-description">
+                        <p>1. Biomarkers: Identifying specific lncRNAs associated with diseases can lead to the development of biomarkers for early diagnosis and prognosis assessment.</p>
+                        <p>2. Disease Classification: lncRNA signatures can aid in categorizing diseases into subtypes based on their molecular profiles, which can guide personalized treatment strategies.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="app-title">Therapeutic Targets and Drug Development</div>
+                    <div class="app-description">
+                        <p>1. Targeted Therapies: Understanding the role of lncRNAs in diseases can help in developing targeted therapies by modulating their expression or function.
+                        </p>
+                        <p>2. Drug Development: lncRNAs can serve as potential targets for drug development, creating opportunities for novel therapeutic interventions.</p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="app-title">Understanding Disease Mechanisms</div>
+                    <div class="app-description">
+                        <p>1. Disease Pathways: Studying lncRNA-disease associations elucidates underlying molecular mechanisms, shedding light on disease pathways and progression.</p>
+                        <p>2. Genetic Variations: Exploring how genetic variations in lncRNAs contribute to disease susceptibility and progression can deepen our understanding of complex diseases.
+                        </p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="app-title">Functional Analysis</div>
+                    <div class="app-description">
+                        <p>1. Experimental Validation: Investigating the function of disease-associated lncRNAs through experimental methods helps validate their roles in disease onset and progression.
+                        </p>
+                        <p>2. Gene Regulation: Understanding how lncRNAs regulate gene expression can uncover new layers of gene regulatory networks involved in diseases.
+</p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="app-title">Clinical Applications</div>
+                    <div class="app-description">
+                        <p>1. Precision Medicine: Incorporating lncRNA profiles into patient care can enable tailored treatment strategies for better therapeutic outcomes.
+                        </p>
+                        <p>2. Predictive Models: Integrating lncRNA data into predictive models may enhance accuracy in predicting disease risk and treatment response.
+                        </p>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="app-title">Research and Development</div>
+                    <div class="app-description">
+                        <p>1. Biological Research: lncRNA-disease associations provide avenues for further basic research into molecular biology and cellular processes.</p>
+                        <p>2. Technological Advancements: Studying these associations drives the development of new technologies and tools for analyzing RNA, improving our ability to study diseases at a molecular level.
+                        </p>
+                    </div>
+                </li>
+
+
+                <!-- Repeat the structure for each application category -->
+                <!-- ... -->
+                <!-- You can insert the other application categories here -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PrediLnc. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
