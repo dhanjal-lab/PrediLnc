@@ -71,7 +71,7 @@ GARNet was validated using stratified cross-validation and ten real-world case s
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Udit64/PrediLnc.git
+git clone https://www.github.com/dhanjal-lab/PrediLnc.git
 cd PrediLnc
 
 # 2. Install Anaconda or Miniconda (manual step – download from official site)
@@ -114,7 +114,7 @@ python app.py
 
 # Access the local server at: http://127.0.0.1:5000/
 # 1. Clone the PrediLnc GitHub repository to your local system
-git clone https://github.com/Udit64/PrediLnc.git
+git clone https://www.github.com/dhanjal-lab/PrediLnc.git
 cd PrediLnc
 
 # 2. Install Anaconda or Miniconda (choose one depending on preference)
